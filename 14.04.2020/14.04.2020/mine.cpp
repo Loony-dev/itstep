@@ -4,20 +4,28 @@
 TODO:
 1. Массив, заполненный случайными числами разделить на два массива МИНИМАЛЬНО ВОЗМОЖНОГО РАЗМЕРА: even - будет содержать четные элементы исходного массива, odd -  будет содержать НЕчетные элементы исходного массива;
 2. Написать функции для работы с динамическими массивами:
-	FillRand;																	>>>>>>>>>> DONE
-	Print;																		>>>>>>>>>> DONE
-	??? push_back(???) - добавляет элемент в конец массива;						>>>>>>>>>> IN PROCESS
-	??? push_front(???) - добавляет элемент в начало массива;					>>>>>>>>>> IN PROCESS
+	FillRand;		>>>>>>>>>> DONE
+	Print;			>>>>>>>>>> DONE
+	??? push_back(???) - добавляет элемент в конец массива;		>>>>>>>>>> IN PROCESS
+	??? push_front(???) - добавляет элемент в начало массива;	>>>>>>>>>> IN PROCESS
 	??? insert(???) - вставляет в массив новый элемент по указанному индексу;	>>>>>>>>>> IN PROCESS
-	??? pop_back(???) - удаляет элемент с конца массива;						>>>>>>>>>> IN PROCESS
-	??? pop_front(???) - удаляет элемент с начала массива;						>>>>>>>>>> IN PROCESS
-	??? erase(???) - удаляет элемент по указанному индексу;						>>>>>>>>>> IN PROCESS
+	??? pop_back(???) - удаляет элемент с конца массива;		>>>>>>>>>> IN PROCESS
+	??? pop_front(???) - удаляет элемент с начала массива;		>>>>>>>>>> IN PROCESS
+	??? erase(???) - удаляет элемент по указанному индексу;		>>>>>>>>>> IN PROCESS
 */
 
 using namespace std;
 
 void fillRand(int array[], int size);
 void print(int array[], int size);
+
+void pushBack(int array[], int lastID);
+void pushFront(int array[], int firstID);
+void insert(int array[], int key);
+
+void popBack(int array[], int lastID);
+void popFront(int array[], int firstID);
+void erase(int array[], int key);
 
 void main()
 {
@@ -33,6 +41,9 @@ void main()
 	fillRand(array, n);
 	print(array, n);
 
+
+
+	delete[] array;
 }
 
 void fillRand(int array[], int size)
@@ -47,3 +58,11 @@ void print(int array[], int size)
 		cout << array[i] << "\t";
 	cout << endl;
 }
+
+void pushBack(int array[], int lastID) {}
+void pushFront(int array[], int firstID) {}
+void insert(int array[], int key) {}
+
+void popBack(int array[], int lastID) {}
+void popFront(int array[], int firstID) {}
+void erase(int array[], int key) {}
