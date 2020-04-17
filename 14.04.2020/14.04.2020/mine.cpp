@@ -8,7 +8,7 @@ TODO:
 	Print;			>>>>>>>>>> DONE
 	??? push_back(???) - добавляет элемент в конец массива;		>>>>>>>>>> IN PROCESS
 	??? push_front(???) - добавляет элемент в начало массива;	>>>>>>>>>> IN PROCESS
-	??? insert(???) - вставляет в массив новый элемент по указанному индексу;	>>>>>>>>>> IN PROCESS
+	??? insert(???) - вставляет в массив новый элемент по указанному индексу;	>>>>>>>>>> DONE
 	??? pop_back(???) - удаляет элемент с конца массива;		>>>>>>>>>> IN PROCESS
 	??? pop_front(???) - удаляет элемент с начала массива;		>>>>>>>>>> IN PROCESS
 	??? erase(???) - удаляет элемент по указанному индексу;		>>>>>>>>>> IN PROCESS
@@ -19,28 +19,29 @@ using namespace std;
 void fillRand(int array[], int size);
 void print(int array[], int size);
 
-void pushBack(int array[], int lastID);
-void pushFront(int array[], int firstID);
-void insert(int array[], int key);
+void pushBack(int array[], int size);
+void pushFront(int array[], int size);
+void insert(int array[], int size);
 
-void popBack(int array[], int lastID);
-void popFront(int array[], int firstID);
-void erase(int array[], int key);
+void popBack(int array[], int size);
+void popFront(int array[], int size);
+void erase(int array[], int size);
 
 void main()
 {
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, ""); 
 
 	int n;
 
 	cout << "Enter the size of array: ";
 	cin >> n;
+	cout << endl;
 
 	int* array = new int[n];
 	
 	fillRand(array, n);
 	print(array, n);
-
+	insert(array, n);
 
 
 	delete[] array;
@@ -59,10 +60,27 @@ void print(int array[], int size)
 	cout << endl;
 }
 
-void pushBack(int array[], int lastID) {}
-void pushFront(int array[], int firstID) {}
-void insert(int array[], int key) {}
+void pushBack(int array[], int size) {}
+void pushFront(int array[], int size) {}
+void insert(int array[], int size) {
+	int key, args;
 
-void popBack(int array[], int lastID) {}
-void popFront(int array[], int firstID) {}
-void erase(int array[], int key) {}
+	cout << "Enter the number of the element of the array want to replace: ";
+	cin >> key;
+	cout << endl;
+
+	if (key < size)
+	{
+
+		cout << "Enter the value by which you want to replace the element from the array: ";
+		cin >> args;
+		cout << endl;
+
+		array[key - 1] = args;
+		print(array, size);
+	}
+}
+
+void popBack(int array[], int size) {}
+void popFront(int array[]) {}
+void erase(int array[]) {}
