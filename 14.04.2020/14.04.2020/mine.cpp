@@ -27,21 +27,21 @@ void popBack(int array[], int size);
 void popFront(int array[], int size);
 void erase(int array[], int size);
 
+int n;
+int array[n];
+int* array = new int[n];
 void main()
 {
 	setlocale(LC_ALL, ""); 
 
-	int n;
-
 	cout << "Enter the size of array: ";
 	cin >> n;
 	cout << endl;
-
-	int* array = new int[n];
 	
 	fillRand(array, n);
 	print(array, n);
 	insert(array, n);
+	pushBack(array, n);
 
 
 	delete[] array;
@@ -60,7 +60,17 @@ void print(int array[], int size)
 	cout << endl;
 }
 
-void pushBack(int array[], int size) {}
+void pushBack(int array[], int size) {
+	int args;
+
+	cout << "Enter the value want to add to the array: ";
+	cin >> args;
+	cout << endl;
+
+	n++;
+	array[n] = args;
+	print(array, n);
+}
 void pushFront(int array[], int size) {}
 void insert(int array[], int size) {
 	int key, args;
@@ -69,7 +79,7 @@ void insert(int array[], int size) {
 	cin >> key;
 	cout << endl;
 
-	if (key < size)
+	if (key <= size)
 	{
 
 		cout << "Enter the value by which you want to replace the element from the array: ";
@@ -82,5 +92,5 @@ void insert(int array[], int size) {
 }
 
 void popBack(int array[], int size) {}
-void popFront(int array[]) {}
-void erase(int array[]) {}
+void popFront(int array[], int size) {}
+void erase(int array[], int size) {}
