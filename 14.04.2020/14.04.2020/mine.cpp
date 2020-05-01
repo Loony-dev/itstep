@@ -6,7 +6,7 @@ TODO:
 2. Написать функции для работы с динамическими массивами:
 	FillRand;		>>>>>>>>>> DONE
 	Print;			>>>>>>>>>> DONE
-	??? push_back(???) - добавляет элемент в конец массива;		>>>>>>>>>> IN PROCESS
+	??? push_back(???) - добавляет элемент в конец массива;		>>>>>>>>>> DONE
 	??? push_front(???) - добавляет элемент в начало массива;	>>>>>>>>>> IN PROCESS
 	??? insert(???) - вставляет в массив новый элемент по указанному индексу;	>>>>>>>>>> DONE
 	??? pop_back(???) - удаляет элемент с конца массива;		>>>>>>>>>> IN PROCESS
@@ -19,7 +19,7 @@ using namespace std;
 void fillRand(int array[], int size);
 void print(int array[], int size);
 
-void pushBack(int array[], int size);
+int* pushBack(int array[], int size, int value);
 void pushFront(int array[], int size);
 void insert(int array[], int size);
 
@@ -27,22 +27,29 @@ void popBack(int array[], int size);
 void popFront(int array[], int size);
 void erase(int array[], int size);
 
-int n;
-int array[n];
-int* array = new int[n];
 void main()
 {
 	setlocale(LC_ALL, ""); 
 
+	int n;
+	int value;
+
 	cout << "Enter the size of array: ";
 	cin >> n;
 	cout << endl;
+
+	int* array = new int[n];
 	
 	fillRand(array, n);
 	print(array, n);
 	insert(array, n);
-	pushBack(array, n);
 
+	cout << "Enter value for push back: ";
+	cin >> value;
+	cout << endl;
+	array = pushBack(array, n, value);
+	n++;
+	print(array, n);
 
 	delete[] array;
 }
@@ -60,16 +67,21 @@ void print(int array[], int size)
 	cout << endl;
 }
 
-void pushBack(int array[], int size) {
-	int args;
+int* pushBack(int array[], int size, int value) {
+	int* buffer = new int[size + 1];
 
-	cout << "Enter the value want to add to the array: ";
-	cin >> args;
-	cout << endl;
+	for (int i = 0; i < size; i++)
+		buffer[i] = array[i];
 
-	n++;
-	array[n] = args;
-	print(array, n);
+	delete[] array;
+
+	array = buffer;
+	buffer = nullptr;
+
+	array[size] = value;
+	size++;
+
+	return array;
 }
 void pushFront(int array[], int size) {}
 void insert(int array[], int size) {
