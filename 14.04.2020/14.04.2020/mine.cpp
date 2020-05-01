@@ -7,7 +7,7 @@ TODO:
 	FillRand;		>>>>>>>>>> DONE
 	Print;			>>>>>>>>>> DONE
 	??? push_back(???) - добавляет элемент в конец массива;		>>>>>>>>>> DONE
-	??? push_front(???) - добавляет элемент в начало массива;	>>>>>>>>>> IN PROCESS
+	??? push_front(???) - добавляет элемент в начало массива;	>>>>>>>>>> DONE
 	??? insert(???) - вставляет в массив новый элемент по указанному индексу;	>>>>>>>>>> DONE
 	??? pop_back(???) - удаляет элемент с конца массива;		>>>>>>>>>> IN PROCESS
 	??? pop_front(???) - удаляет элемент с начала массива;		>>>>>>>>>> IN PROCESS
@@ -23,8 +23,8 @@ int* pushBack(int array[], int size, int value);
 int* pushFront(int array[], int size, int value);
 void insert(int array[], int size);
 
-void popBack(int array[], int size);
-void popFront(int array[], int size);
+int* popBack(int array[], int size);
+int* popFront(int array[], int size);
 void erase(int array[], int size);
 
 void main()
@@ -58,6 +58,16 @@ void main()
 	n++;
 	print(array, n);
 
+	cout << "Pop back:" << endl;
+	array = popBack(array, n);
+	n--;
+	print(array, n);
+
+	cout << "Pop front:" << endl;
+	array = popFront(array, n);
+	n--;
+	print(array, n);
+
 	delete[] array;
 }
 
@@ -71,7 +81,7 @@ void print(int array[], int size)
 {
 	for (int i = 0; i < size; i++)
 		cout << array[i] << "\t";
-	cout << endl;
+	cout << endl << endl;
 }
 
 int* pushBack(int array[], int size, int value) {
@@ -125,6 +135,35 @@ void insert(int array[], int size) {
 	}
 }
 
-void popBack(int array[], int size) {}
-void popFront(int array[], int size) {}
+int* popBack(int array[], int size) {
+	int* buffer = new int[size];
+
+	for (int i = 0; i < size; i++)
+		buffer[i] = array[i];
+
+	delete[] array;
+
+	array = buffer;
+	buffer = nullptr;
+
+	size--;
+
+	return array;
+}
+int* popFront(int array[], int size) {
+	// Aoaoaoa not worked (nearly) --- falls into error
+	int* buffer = new int[size - 1];
+
+	for (int i = 0; i < size; i++)
+		buffer[i] = array[i + 1];
+
+	delete[] array;
+
+	array = buffer;
+	buffer = nullptr;
+
+	size--;
+
+	return array;
+}
 void erase(int array[], int size) {}
