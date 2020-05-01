@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\vikto\source\repos\Loony-dev\itstep\DinamycMemory\DinamycMemory\main.cpp(9,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  DinamycMemory.vcxproj -> C:\Users\vikto\source\repos\Loony-dev\itstep\DinamycMemory\Debug\DinamycMemory.exe
