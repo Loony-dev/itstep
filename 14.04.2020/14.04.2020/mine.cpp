@@ -20,7 +20,7 @@ void fillRand(int array[], int size);
 void print(int array[], int size);
 
 int* pushBack(int array[], int size, int value);
-void pushFront(int array[], int size);
+int* pushFront(int array[], int size, int value);
 void insert(int array[], int size);
 
 void popBack(int array[], int size);
@@ -48,6 +48,13 @@ void main()
 	cin >> value;
 	cout << endl;
 	array = pushBack(array, n, value);
+	n++;
+	print(array, n);
+
+	cout << "Enter value for push front: ";
+	cin >> value;
+	cout << endl;
+	array = pushFront(array, n, value);
 	n++;
 	print(array, n);
 
@@ -83,7 +90,22 @@ int* pushBack(int array[], int size, int value) {
 
 	return array;
 }
-void pushFront(int array[], int size) {}
+int* pushFront(int array[], int size, int value) {
+	int* buffer = new int[size + 1];
+
+	for (int i = 0; i < size; i++)
+		buffer[i + 1] = array[i];
+
+	delete[] array;
+
+	array = buffer;
+	buffer = nullptr;
+
+	array[0] = value;
+	size++;
+
+	return array;
+}
 void insert(int array[], int size) {
 	int key, args;
 
