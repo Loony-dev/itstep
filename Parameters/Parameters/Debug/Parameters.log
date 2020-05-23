@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\vikto\source\repos\Loony-dev\itstep\Parameters\Parameters\main.cpp(7,13): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  Parameters.vcxproj -> C:\Users\vikto\source\repos\Loony-dev\itstep\Parameters\Debug\Parameters.exe
