@@ -1,0 +1,5 @@
+﻿  functions.cpp
+  Main.cpp
+C:\Users\vikto\source\repos\Loony-dev\itstep\FunctionTemplates\FunctionTemplates\Main.cpp(4,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Generating Code...
+  FunctionTemplates.vcxproj -> C:\Users\vikto\source\repos\Loony-dev\itstep\FunctionTemplates\Debug\FunctionTemplates.exe
