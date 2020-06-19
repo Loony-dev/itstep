@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOP_GetDistance", "OOP_GetDistance\OOP_GetDistance.vcxproj", "{E095670E-6505-4C96-856D-7B795AB7A679}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E095670E-6505-4C96-856D-7B795AB7A679}.Debug|x64.ActiveCfg = Debug|x64
+		{E095670E-6505-4C96-856D-7B795AB7A679}.Debug|x64.Build.0 = Debug|x64
+		{E095670E-6505-4C96-856D-7B795AB7A679}.Debug|x86.ActiveCfg = Debug|Win32
+		{E095670E-6505-4C96-856D-7B795AB7A679}.Debug|x86.Build.0 = Debug|Win32
+		{E095670E-6505-4C96-856D-7B795AB7A679}.Release|x64.ActiveCfg = Release|x64
+		{E095670E-6505-4C96-856D-7B795AB7A679}.Release|x64.Build.0 = Release|x64
+		{E095670E-6505-4C96-856D-7B795AB7A679}.Release|x86.ActiveCfg = Release|Win32
+		{E095670E-6505-4C96-856D-7B795AB7A679}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EEC98B5-6C7B-4460-9D71-00E1BE46361F}
+	EndGlobalSection
+EndGlobal
