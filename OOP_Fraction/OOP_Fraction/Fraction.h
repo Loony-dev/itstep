@@ -1,4 +1,12 @@
 #pragma once
+#include <ostream>
+using namespace std;
+
+class Fraction;
+Fraction operator+(Fraction first, Fraction second);
+Fraction operator-(Fraction first, Fraction second);
+Fraction operator*(Fraction first, Fraction second);
+Fraction operator/(Fraction first, Fraction second);
 
 class Fraction
 {
@@ -10,6 +18,8 @@ public:
 	Fraction(int numerator, int denominator);
 	Fraction(int integer, int numerator, int denominator);
 	Fraction(const Fraction& other);
+
+	Fraction(double decimal);
 
 	// ---> Destructor ------------------
 	~Fraction();
@@ -30,6 +40,19 @@ public:
 	Fraction& operator-=(Fraction other);
 	Fraction& operator*=(Fraction other);
 	Fraction& operator/=(Fraction other);
+
+	Fraction& operator++();
+	Fraction operator++(int);
+
+	operator int()
+	{
+		return this->integer;
+	}
+
+	operator double()
+	{
+		return integer + (double)numerator / denominator;
+	}
 
 	// ---> Methods ------------------
 	Fraction& toProper();

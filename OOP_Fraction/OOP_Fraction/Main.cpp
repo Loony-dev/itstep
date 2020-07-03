@@ -2,10 +2,7 @@
 
 #include "Fraction.h"
 
-Fraction operator+(Fraction first, Fraction second);
-Fraction operator-(Fraction first, Fraction second);
-Fraction operator*(Fraction first, Fraction second);
-Fraction operator/(Fraction first, Fraction second);
+
 
 void main()
 {
@@ -45,51 +42,19 @@ void main()
 
 	cout << "---> Addition (+)  "; (AFirst + ASecond).print();
 	cout << "---> Addition (+=) "; (AFirst += ASecond).print();
+	cout << "---> Addition (++) "; (++AFirst).print();
+	cout << endl;
+
+	// ---> Converting ------------------
+	int a = AFirst;
+	cout << "---> Fraction to int " << a << endl;
+
+	double as = ASecond;
+	cout << "---> Fraction to double " << as << endl;
+	cout << endl;
+
+	Fraction FD(2.5);
+	cout << "---> Float "; FD.print();
 	cout << endl;
 }
 
-Fraction operator+(Fraction first, Fraction second)
-{
-	first.toImprorer();
-	second.toImprorer();
-
-	return Fraction(
-		first.getNumerator() * second.getDenominator() +
-		second.getNumerator() * first.getDenominator(),
-		first.getDenominator() * second.getDenominator()
-	).toProper().reduce();
-}
-
-Fraction operator-(Fraction first, Fraction second)
-{
-	first.toImprorer();
-	second.toImprorer();
-
-	return Fraction(
-		first.getNumerator() * second.getDenominator() -
-		second.getNumerator() * first.getDenominator(),
-		first.getDenominator() * second.getDenominator()
-	).toProper().reduce();
-}
-
-Fraction operator/(Fraction first, Fraction second)
-{
-	first.toImprorer();
-	second.toImprorer();
-
-	return Fraction(
-		first.getNumerator() * second.getDenominator(),
-		first.getDenominator() * second.getNumerator()
-	).toProper().reduce();
-}
-
-Fraction operator*(Fraction first, Fraction second)
-{
-	first.toImprorer();
-	second.toImprorer();
-
-	return Fraction(
-		first.getNumerator() * second.getNumerator(),
-		first.getDenominator() * second.getDenominator()
-	).toProper().reduce();
-}

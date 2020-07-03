@@ -40,6 +40,18 @@ Fraction::Fraction(const Fraction& other)
 	setDenominator(other.denominator);
 }
 
+
+Fraction::Fraction(double decimal)
+{
+	integer = decimal;
+	decimal -= integer;
+
+	numerator = decimal * 100000000;
+	denominator = 100000000;
+
+	reduce();
+}
+
 // ---> Destructor ------------------
 Fraction::~Fraction() {}
 
@@ -93,12 +105,27 @@ Fraction& Fraction::operator+=(Fraction other)
 	this->reduce().toImprorer();
 	other.reduce().toImprorer();
 
-	this->numerator = 
-		this->numerator		* other.denominator + 
-		this->denominator	* other.numerator;
+	this->numerator =
+		this->numerator * other.denominator +
+		this->denominator * other.numerator;
 
 	this->denominator = this->denominator *= other.denominator;
 	return this->reduce().toProper();
+}
+
+Fraction& Fraction::operator++()
+{
+	this->reduce().toProper();
+	this->integer++;
+	return *this;
+}
+
+Fraction Fraction::operator++(int)
+{
+	this->reduce().toProper();
+	Fraction old = *this;
+	++this->integer;
+	return old;
 }
 
 Fraction& Fraction::operator-=(Fraction other)
@@ -130,6 +157,64 @@ Fraction& Fraction::operator/=(Fraction other)
 	this->numerator		*= other.denominator;
 	this->denominator	*= other.numerator;
 	return this->reduce().toProper();
+}
+
+Fraction operator+(Fraction first, Fraction second)
+{
+	first.toImprorer();
+	second.toImprorer();
+
+	return Fraction(
+		first.getNumerator() * second.getDenominator() +
+		second.getNumerator() * first.getDenominator(),
+		first.getDenominator() * second.getDenominator()
+	).toProper().reduce();
+}
+
+Fraction operator-(Fraction first, Fraction second)
+{
+	first.toImprorer();
+	second.toImprorer();
+
+	return Fraction(
+		first.getNumerator() * second.getDenominator() -
+		second.getNumerator() * first.getDenominator(),
+		first.getDenominator() * second.getDenominator()
+	).toProper().reduce();
+}
+
+Fraction operator/(Fraction first, Fraction second)
+{
+	first.toImprorer();
+	second.toImprorer();
+
+	return Fraction(
+		first.getNumerator() * second.getDenominator(),
+		first.getDenominator() * second.getNumerator()
+	).toProper().reduce();
+}
+
+Fraction operator*(Fraction first, Fraction second)
+{
+	first.toImprorer();
+	second.toImprorer();
+
+	return Fraction(
+		first.getNumerator() * second.getNumerator(),
+		first.getDenominator() * second.getDenominator()
+	).toProper().reduce();
+}
+
+ostream& operator<<(ostream& os, const Fraction& obj)
+{
+	if (obj.getInteger())os << obj.getInteger();
+	if (obj.getNumerator())
+	{
+		if (obj.getInteger())os << "(";
+		os << obj.getNumerator() << "/" << obj.getDenominator();
+		if (obj.getInteger())os << ")";
+	}
+	else if (obj.getInteger() == 0) cout << 0;
 }
 
 // ---> Methods ------------------
@@ -184,8 +269,9 @@ void Fraction::print() const
 
 	if (numerator)
 	{
-		if (integer) cout << "+";
-		cout << numerator << "/" << denominator;
+		if (integer) 
+			cout << "(" << numerator << "/" << denominator << ")";
+		else cout << numerator << "/" << denominator;
 	}
 	else if (integer == 0)
 		cout << integer;
