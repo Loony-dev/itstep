@@ -215,6 +215,45 @@ ostream& operator<<(ostream& os, const Fraction& obj)
 		if (obj.getInteger())os << ")";
 	}
 	else if (obj.getInteger() == 0) cout << 0;
+	return os;
+}
+
+bool operator==(const Fraction& first, const Fraction& second)
+{
+	return first.getInteger() == second.getInteger() &&
+		first.getNumerator() == second.getNumerator() &&
+		first.getDenominator() == second.getDenominator();
+}
+
+bool operator!=(const Fraction& first, const Fraction& second)
+{
+	return !(second == first);
+}
+
+bool operator>(Fraction first, Fraction second)
+{
+	first.toImprorer();
+	second.toImprorer();
+
+	first -= second;
+	double result = first;
+
+	return (result > 0);
+}
+
+bool operator<(const Fraction& first, const Fraction& second)
+{
+	return !(first >= second);
+}
+
+bool operator>=(const Fraction& first, const Fraction& second)
+{
+	return first > second || first == second;
+}
+
+bool operator<=(const Fraction& first, const Fraction& second)
+{
+	return !(first > second) || first == second;
 }
 
 // ---> Methods ------------------

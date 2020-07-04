@@ -56,5 +56,18 @@ void main()
 	Fraction FD(2.5);
 	cout << "---> Float "; FD.print();
 	cout << endl;
+
+	// ---> Comparison ------------------
+	// CFirst/Second = Comparison First/Second
+	Fraction CFirst(2, 3);
+	Fraction CSecond(2, 3);
+
+	if (CFirst != CSecond) {
+		cout << "---> Comparison (==) (true) "; (CFirst + CSecond).print();
+	}
+	else 
+	{
+		cout << "---> Comparison (==) (false) "; (CFirst + CSecond).print();
+	}
 }
 

@@ -2,11 +2,19 @@
 #include <ostream>
 using namespace std;
 
+// ---> Operators ------------------
 class Fraction;
 Fraction operator+(Fraction first, Fraction second);
 Fraction operator-(Fraction first, Fraction second);
 Fraction operator*(Fraction first, Fraction second);
 Fraction operator/(Fraction first, Fraction second);
+
+bool operator==(const Fraction& first, const Fraction& second);
+bool operator!=(const Fraction& first, const Fraction& second);
+bool operator>(Fraction first, Fraction second);
+bool operator<(const Fraction& first, const Fraction& second);
+bool operator>=(const Fraction& first, const Fraction& second);
+bool operator<=(const Fraction& first, const Fraction& second);
 
 class Fraction
 {
